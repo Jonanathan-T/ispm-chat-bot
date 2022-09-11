@@ -1,10 +1,16 @@
 import ampalibe
-from ampalibe import Messenger
+from ampalibe import webserver
 
-chat = Messenger()
+chat = ampalibe.Messenger()
 
 # create a get started option to get permission of user.
 # chat.get_started()
+
+
+@webserver.get('/hello')
+def test():
+    return 'Hello, test'
+
 
 @ampalibe.command('/')
 def main(sender_id, cmd, **extends):
@@ -21,6 +27,5 @@ def main(sender_id, cmd, **extends):
             data sent by facebook (sending time, ...)
             data sent by your payload if not set in parameter
     '''
-    
+
     chat.send_message(sender_id, "Hello, Ampalibe")
-    
