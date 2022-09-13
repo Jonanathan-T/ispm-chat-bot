@@ -19,13 +19,12 @@ language = [
 how_is_ispm = "L'ISPM est une institution d'Enseignement et de Recheche habilitee par le Ministere de l'Enseignement Superieur et de la Recherche Scientifique."
 
 historiques = [
-    "Historique de l'ISPM"
+    "Historique de l'ISPM",
     "L'ISPM, sis a AMBATOMARO - ANTSOBOLO, a ete cree le 23 Janvier 1993",
     "En 1994, il a recu l'agrement du Ministere de l'Enseignement Superieur et de la Recherche Scientifique.\nEn 1998, il a recu l'homologation du Ministere de l'Enseignement Superieur et de la recherche Scientifique.\nEn 2015, il a recu l'habilitation du Ministere de l'Enseignement Superieur et de la Recherche Scientifique a delivrer les diplomes de Licence et de Master pour tous les parcours qu'il offre.\nLes diplomes delivres par l'ISPM sont reconnus par le Ministere de la Fonction Publique (FOP).",
-    "Les membres de la communaute ISPM ont fait plusieurs publications scientifique au niveau national et au niveau international (voir le site web)."
-    "L'ISPM a brevete le rechaud a l'ethanol a l'OMAPI."
+    "Les membres de la communaute ISPM ont fait plusieurs publications scientifique au niveau national et au niveau international (voir le site web).",
+    "L'ISPM a brevete le rechaud a l'ethanol a l'OMAPI.",
     "Des performances sportives : l'ISPM est champion Interfac 2018 et vice-champion Interfac 2019 en Football Hommes, ..."
-
 ]
 
 go_to_main = [
