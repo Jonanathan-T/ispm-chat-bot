@@ -16,6 +16,7 @@ language = [
     )
 ]
 
+
 how_is_ispm = "L'ISPM est une institution d'Enseignement et de Recheche habilitee par le Ministere de l'Enseignement Superieur et de la Recherche Scientifique."
 
 historiques = [
@@ -30,7 +31,7 @@ historiques = [
 go_to_main = [
     Button(
         type='postback',
-        title='Confirmation',
+        title='Afficher',
         payload=Payload('/')
     )
 ]
@@ -50,9 +51,19 @@ def get_started(sender_id, cmd, **extends):
 @ampalibe.command('/langue')
 def choice_language(sender_id, lang, ref, cmd, **extends):
     query.set_lang(sender_id, ref)
-    chat.send_button(sender_id, go_to_main, 'Confirmer/Amarino')
+    chat.send_button(sender_id, go_to_main, 'Afficher la menu')
 
 @ampalibe.command('/')
 def main(sender_id, lang, cmd, **extends):
+    menu_principale = [
+        QuickReply(
+            title=translate('about', lang),
+            payload=Payload('/about', name='About')
+        ),
+        QuickReply(
+            title=translate('registration', lang),
+            payload=Payload('/registration', name='Registration')
+        )
+    ]
     chat.send_message(sender_id, translate('hello_world', lang))
-    chat.send_message(sender_id, translate('key', lang))
+    chat.send_quick_reply(sender_id, menu_principale, translate('help', lang))
