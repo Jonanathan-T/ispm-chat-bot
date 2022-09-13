@@ -1,13 +1,11 @@
 {
-    "hello_world": {
-        "en": "Hello World",
-        "fr": "Bonjour le monde"
-    },
+  "hello_world": {
+    "fr": "Bonjour les gens, \nl'ISPM est heureux de vous accueillir sur notre page.",
+    "mg": "Salama tompoko, ny ISPM dia faly mandray anao eto amin'ny pejy nay."
+  },
 
-    "ampalibe": {
-        "en": "Jackfruit", 
-        "fr": "Jacquier",
-        "mg": "Ampalibe"
-    }
+  "ampalibe": {
+    "fr": "Jacquier",
+    "mg": "Ampalibe"
+  }
 }
-
