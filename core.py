@@ -1,6 +1,7 @@
 import ampalibe
 from ampalibe import Model, Messenger, translate, Payload
 from ampalibe.ui import QuickReply, Button
+from conf import Configuration as config
 
 chat = Messenger()
 query = Model()
@@ -68,5 +69,6 @@ def main(sender_id, lang, cmd, **extends):
             payload=Payload('/registration', name='Registration')
         )
     ]
+    chat.send_file_url(sender_id, config().APP_URL+"/asset/logo_ispm.webp", filetype='image')
     chat.send_message(sender_id, translate('hello_world', lang))
     chat.send_quick_reply(sender_id, menu_principale, translate('help', lang))
