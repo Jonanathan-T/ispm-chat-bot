@@ -17,7 +17,6 @@ language = [
     )
 ]
 
-
 how_is_ispm = "L'ISPM est une institution d'Enseignement et de Recheche habilitee par le Ministere de l'Enseignement Superieur et de la Recherche Scientifique."
 
 historiques = [
@@ -39,6 +38,57 @@ go_to_main = [
         payload=Payload('/')
     )
 ]
+
+mentions = {
+    {
+        "mention":"Informatique et Telecommunications", 
+        "parcours":[
+            "Informatique de Gestion, Genie Logiciel et Intelligence Artificielle",
+            "Electronique Systemes Informatiques et Intelligence Artificielle",
+            "Informatique, Multimedia, Technologie de l'Information, de la Communication et Intelligence Artificielle",
+            "Informatique, Statistiques Appliquees et Intelligence Artificielle",
+        ]
+    },
+    {
+        "mention":"Droit et Techniques des Affaires",
+        "parcours":[
+            "Commerce et Administration des Affaires",
+            "Droit et Techniques Juridiques des Affaires",
+            "Finances et Comptabilites",
+            "Economie et Management de Projet"
+        ],
+    },
+    {
+        "mention":"Biotechnologie et Agronomie",
+        "parcours":[
+            "Industries Agro-Alimentaires",
+            "Pharmacologie et Industrie Pharmaceutiques",
+            "Agriculture et Elevage"
+        ],
+    },
+    {
+        "mention":"Genie Industriel",
+        "parcours":[
+            "Electromecanique et Informatique Industriel",
+            "Industries Chimiques",
+            "Industries Minieres et Petrolieres"
+        ],
+    },
+    {
+        "mention":"Genie Civil et Architecture",
+        "parcours":[
+            "Genie Civil",
+            "Architecture"
+        ],
+    },
+    {
+        "mention":"Tourisme",
+        "parcours":[
+            "Tourisme et Environnement",
+            "Tourisme et Hotellerie"
+        ],
+    }
+}
 
 # create a get started option to get permission of user.
 chat.get_started('/get_started')
@@ -72,3 +122,17 @@ def main(sender_id, lang, cmd, **extends):
     chat.send_file_url(sender_id, config().APP_URL+"/asset/logo_ispm.webp", filetype='image')
     chat.send_message(sender_id, translate('hello_world', lang))
     chat.send_quick_reply(sender_id, menu_principale, translate('help', lang))
+
+@ampalibe.command('/about')
+def about(sender_id, lang, cmd, **extends):
+    about_it = [
+        QuickReply(
+            title=translate('inscription', lang),
+            payload=Payload('/inscription', name='Inscription', ref='id')
+        ),
+        QuickReply(
+            title=translate('sector', lang),
+            payload=Payload('/sector', name='Filiere', ref='id')
+        )
+    ]
+    chat.send_quick_reply(sender_id, about_it, translate('what_about', lang))

@@ -11,12 +11,25 @@
     "fr": "Information",
     "mg": "Mombamoba ny sekoly"
   },
+  "what_about": {
+    "fr": "Information a propos de: ",
+    "mg": "Mahakasika ny: "
+  },
   "registration": {
     "fr": "Inscription",
     "mg": "Hisoratra anarana"
   },
+  "inscription": {
+    "fr": "Inscription",
+    "mg": "Fisoratra anarana"
+  },
+  "sector": {
+    "fr": "Les Mentions",
+    "mg": "Ireo Taranja"
+  },
   "ampalibe": {
     "fr": "Jacquier",
     "mg": "Ampalibe"
-  }
+  },
+  "informations": "filiere, tarif, activite universitaire"
 }
