@@ -18,10 +18,10 @@ language = [
 ]
 
 how_is_ispm = "L'ISPM est une institution d'Enseignement et de Recheche habilitee par le Ministere de l'Enseignement Superieur et de la Recherche Scientifique."
+ispm_localization = "L'ISPM, sis a AMBATOMARO - ANTSOBOLO, a ete cree le 23 Janvier 1993"
 
 historiques = [
-    "Historique de l'ISPM",
-    "L'ISPM, sis a AMBATOMARO - ANTSOBOLO, a ete cree le 23 Janvier 1993",
+    "Petite historique de l'ISPM",
     "En 1994, il a recu l'agrement du Ministere de l'Enseignement Superieur et de la Recherche Scientifique.",
     "En 1998, il a recu l'homologation du Ministere de l'Enseignement Superieur et de la recherche Scientifique.",
     "En 2015, il a recu l'habilitation du Ministere de l'Enseignement Superieur et de la Recherche Scientifique a delivrer les diplomes de Licence et de Master pour tous les parcours qu'il offre.",
@@ -96,10 +96,7 @@ chat.get_started('/get_started')
 @ampalibe.command('/get_started')
 def get_started(sender_id, cmd, **extends):
     chat.send_message(sender_id, how_is_ispm)
-
-    for historique in historiques:
-        chat.send_message(sender_id, historique)
-
+    chat.send_message(sender_id, ispm_localization)
     chat.send_quick_reply(sender_id, language, 'Choisir votre langue?')
 
 @ampalibe.command('/langue')
@@ -144,7 +141,14 @@ def sector(sender_id, lang, cmd, **extends):
         quick_mentions.append(
             QuickReply(
                 title=mention['mention'],
-                payload=Payload('/parcours', name=mention['mention'])
+                payload=Payload('/career', parcours=mention['parcours'])
             ),
         )
     chat.send_quick_reply(sender_id, quick_mentions, translate('sector', lang)+":")
+
+@ampalibe.command('/career')
+def career(sender_id, lang, cmd, parcours, **extends):
+    i = 0
+    for parcour in parcours:
+        i = i + 1
+        chat.send_message(sender_id, "{} - {}".format(i,parcour))
