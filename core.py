@@ -39,7 +39,7 @@ go_to_main = [
     )
 ]
 
-mentions = {
+mentions = [
     {
         "mention":"Informatique et Telecommunications", 
         "parcours":[
@@ -88,7 +88,7 @@ mentions = {
             "Tourisme et Hotellerie"
         ],
     }
-}
+]
 
 # create a get started option to get permission of user.
 chat.get_started('/get_started')
@@ -136,3 +136,15 @@ def about(sender_id, lang, cmd, **extends):
         )
     ]
     chat.send_quick_reply(sender_id, about_it, translate('what_about', lang))
+
+@ampalibe.command('/sector')
+def sector(sender_id, lang, cmd, **extends):
+    quick_mentions = []
+    for mention in mentions:
+        quick_mentions.append(
+            QuickReply(
+                title=mention['mention'],
+                payload=Payload('/parcours', name=mention['mention'])
+            ),
+        )
+    chat.send_quick_reply(sender_id, quick_mentions, translate('sector', lang)+":")
