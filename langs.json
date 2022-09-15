@@ -12,8 +12,12 @@
     "mg": "Mombamoba ny sekoly"
   },
   "what_about": {
-    "fr": "Information a propos de: ",
+    "fr": "A propos de: ",
     "mg": "Mahakasika ny: "
+  },
+  "detail": {
+    "fr": "Choisir un numero pour plus de details:",
+    "mg": "Misafidiana isa raha te hafantatra misimisy:"
   },
   "registration": {
     "fr": "Inscription",
@@ -24,7 +28,7 @@
     "mg": "Fisoratra anarana"
   },
   "sector": {
-    "fr": "Les Mentions",
+    "fr": "Mentions",
     "mg": "Ireo Taranja"
   },
   "ampalibe": {
