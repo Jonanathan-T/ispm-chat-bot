@@ -205,7 +205,7 @@ def about(sender_id, lang, cmd, **extends):
     ]
     chat.send_quick_reply(sender_id, about_it, translate('what_about', lang))
 
-
+### About sector existing in ISPM
 @ampalibe.command('/sector')
 def sector(sender_id, lang, cmd, **extends):
     quick_mentions = []
@@ -251,3 +251,6 @@ def details(sender_id, lang, parcours, cmd, **extends):
         ),
     ]
     chat.send_quick_reply(sender_id, go_to, 'Voir les mentions?')
+### End about sector
+
+# About inscription in ISPM
