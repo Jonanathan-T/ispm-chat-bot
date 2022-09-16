@@ -2,6 +2,7 @@ import ampalibe
 from ampalibe import Model, Messenger, translate, Payload
 from ampalibe.ui import QuickReply, Button
 from conf import Configuration as config
+from datetime import datetime
 
 chat = Messenger()
 query = Model()
@@ -15,6 +16,17 @@ language = [
         title='Malagasy',
         payload=Payload('/langue', ref='mg')
     )
+]
+
+frais = "30 000Ar";
+
+files_attachment = [
+    "Photocopie legalisee de l'attestation du Bac ou du releve de notes du Bac",
+    "Bulletin de naissance",
+    f"Droit d'inscription a la selection de dossier : {frais}",
+    "Releve de notes des classes de seconde, premiere et terminale (facultatif)",
+    "Une photo d'identite",
+    "1 enveloppe timbree",
 ]
 
 how_is_ispm = "L'ISPM est une institution d'Enseignement et de Recheche habilitee par le Ministere de l'Enseignement Superieur et de la Recherche Scientifique."
@@ -58,6 +70,8 @@ parcours_details = {
     "TEH": "La civilisation malagasy est unique par l'apport des cultures à la fois asiatiques, africaines et plus tard européennes. La filière tourisme et hôtellerie a pour objectifs d'enseigner aux étudiants la richesse de notre civilisation. Par ailleurs, les autres cultures ne seront pas négligées car l'ISPM forme des étudiants capables de maîtriser les différentes techniques de l'art culinaire à la fois national et international.",
 }
 
+bac_scientifique = "Bac C, D, S, Tech"
+
 mentions = [
     {
         "mention": "Informatique et Telecommunications",
@@ -79,6 +93,7 @@ mentions = [
                 "sigle": "ISAIA",
             },
         ],
+        "qualification":bac_scientifique,
     },
     {
         "mention": "Droit et Techniques des Affaires",
@@ -100,6 +115,8 @@ mentions = [
                 "sigle": "EMP",
             },
         ],
+        "qualification":"Bac toutes series",
+
     },
     {
         "mention": "Biotechnologie et Agronomie",
@@ -117,6 +134,7 @@ mentions = [
                 "sigle": "AEE",
             },
         ],
+        "qualification":f"{bac_scientifique}, A2",
     },
     {
         "mention": "Genie Industriel",
@@ -130,6 +148,7 @@ mentions = [
                 "sigle": "ICMP",
             },
         ],
+        "qualification":bac_scientifique,
     },
     {
         "mention": "Genie Civil et Architecture",
@@ -139,9 +158,10 @@ mentions = [
                 "sigle": "GCA",
             },
         ],
+        "qualification":bac_scientifique,
     },
     {
-        "mention": "Tourisme",
+        "mention": "Technique du Tourisme",
         "parcours": [
             {
                 "leash": "Tourisme et Environnement",
@@ -152,6 +172,7 @@ mentions = [
                 "sigle": "TEH",
             },
         ],
+        "qualification":"Bac toutes series",
     }
 ]
 
@@ -205,7 +226,7 @@ def about(sender_id, lang, cmd, **extends):
     ]
     chat.send_quick_reply(sender_id, about_it, translate('what_about', lang))
 
-
+### About sector existing in ISPM
 @ampalibe.command('/sector')
 def sector(sender_id, lang, cmd, **extends):
     quick_mentions = []
@@ -251,3 +272,23 @@ def details(sender_id, lang, parcours, cmd, **extends):
         ),
     ]
     chat.send_quick_reply(sender_id, go_to, 'Voir les mentions?')
+### End about sector
+
+# About inscription in ISPM
+@ampalibe.command('/inscription')
+def inscription(sender_id, cmd, lang, **extends):
+    datetime_for_string = datetime(2016,10,1,0,0)
+    datetime_string_format = '%d %b %Y'
+    date_string = datetime.strftime(datetime_for_string,datetime_string_format)
+
+    chat.send_message(sender_id, translate('attachment', lang))
+    for piece in files_attachment:
+        chat.send_message(sender_id, f" {piece}")
+    
+    chat.send_message(sender_id, translate('qualification', lang))
+    for mention in mentions:
+        chat.send_message(sender_id, f"{mention['mention']}: {mention['qualification']}")
+    
+    chat.send_message(sender_id, f"{translate('end_souscription', lang)} {date_string}")
+
+# End about sector

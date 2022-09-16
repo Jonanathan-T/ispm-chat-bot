@@ -4,3 +4,4 @@ __pycache__/
 ngrok
 ngrok.exe
 .vscode
+.db

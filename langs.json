@@ -27,6 +27,18 @@
     "fr": "Inscription",
     "mg": "Fisoratra anarana"
   },
+  "attachment": {
+    "fr": "Dossier a fournir:",
+    "mg": "Ireo taratasy ilaina:"
+  },
+  "qualification": {
+    "fr": "Conditions d'admission:",
+    "mg": "Fahafahana misitraka ny:"
+  },
+  "end_souscription": {
+    "fr": "Fin de depot de dossier:",
+    "mg": "Farany fisoratana anarana:"
+  },
   "sector": {
     "fr": "Mentions",
     "mg": "Ireo Taranja"
