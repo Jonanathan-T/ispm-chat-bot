@@ -3,9 +3,49 @@
     "fr": "Bonjour les gens, \nl'ISPM est heureux de vous accueillir sur notre page.",
     "mg": "Salama tompoko, ny ISPM dia faly mandray anao eto amin'ny pejy nay."
   },
-
+  "help": {
+    "fr": "Que puis-je faire pour vous?",
+    "mg": "Inona no afaka atao ho anao?"
+  },
+  "about": {
+    "fr": "Information",
+    "mg": "Mombamoba ny sekoly"
+  },
+  "what_about": {
+    "fr": "A propos de: ",
+    "mg": "Mahakasika ny: "
+  },
+  "detail": {
+    "fr": "Choisir un numero pour plus de details:",
+    "mg": "Misafidiana isa raha te hafantatra misimisy:"
+  },
+  "registration": {
+    "fr": "Inscription",
+    "mg": "Hisoratra anarana"
+  },
+  "inscription": {
+    "fr": "Inscription",
+    "mg": "Fisoratra anarana"
+  },
+  "attachment": {
+    "fr": "Dossier a fournir:",
+    "mg": "Ireo taratasy ilaina:"
+  },
+  "qualification": {
+    "fr": "Conditions d'admission:",
+    "mg": "Fahafahana misitraka ny:"
+  },
+  "end_souscription": {
+    "fr": "Fin de depot de dossier:",
+    "mg": "Farany fisoratana anarana:"
+  },
+  "sector": {
+    "fr": "Mentions",
+    "mg": "Ireo Taranja"
+  },
   "ampalibe": {
     "fr": "Jacquier",
     "mg": "Ampalibe"
-  }
+  },
+  "informations": "filiere, tarif, activite universitaire"
 }
