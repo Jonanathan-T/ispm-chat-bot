@@ -122,7 +122,9 @@ def details(sender_id, lang, parcours, cmd, **extends):
             payload=Payload('/sector', name='Retour', parcours=parcours)
         ),
     ]
+    chat.send_button(sender_id, go_to_main, 'Afficher la menu')
     chat.send_quick_reply(sender_id, go_to, 'Voir les mentions?')
+    
 ### End about sector
 
 # About inscription in ISPM
@@ -147,5 +149,7 @@ def inscription(sender_id, cmd, lang, **extends):
     chat.send_message(sender_id, qualification)
 
     chat.send_message(sender_id, f"{translate('end_souscription', lang)} {date_string}")
+
+    chat.send_button(sender_id, go_to_main, 'Afficher la menu')
 
 # End about sector
