@@ -10,7 +10,7 @@ query = Model()
 
 language = [
     QuickReply(
-        title='Francais',
+        title='Français',
         payload=Payload('/langue', ref='fr')
     ),
     QuickReply(
@@ -179,18 +179,18 @@ class Registration:
     @ampalibe.command('/registration')
     def get_user_name(sender_id, cmd, **extends):
         query.set_action(sender_id, '/get_name')
-        chat.send_message(sender_id, "Votre nom s'il vous plaît")
+        chat.send_message(sender_id, "Votre nom s'il vous plaît:")
 
     @ampalibe.action('/get_name')
     def get_email_user(sender_id, cmd, **extends):
         query.set_temp(sender_id, 'nom', cmd)
-        chat.send_message(sender_id, "Entrer votre mail")
+        chat.send_message(sender_id, "Entrer votre mail ou tel:")
         query.set_action(sender_id, '/get_mail')
 
     @ampalibe.action('/get_mail')
     def get_email_user(sender_id, cmd, **extends):
         query.set_temp(sender_id, 'mail', cmd)
-        chat.send_message(sender_id, "Envoyer les dossiers dans un format pdf")
+        chat.send_message(sender_id, "Envoyer les dossiers dans un format pdf:")
         query.set_action(sender_id, '/get_folder')
 
     @ampalibe.action('/get_folder')
@@ -229,7 +229,7 @@ class Registration:
     @ampalibe.action('/references')
     def references(sender_id, cmd, lang, **extends):
         query.set_temp(sender_id, 'reference', cmd)
-
+        chat.send_message(sender_id, f"{translate('appreciation', lang)}😊😊😊")
         menu_principale = [
             QuickReply(
                 title=translate('about', lang),
@@ -240,4 +240,5 @@ class Registration:
                 payload=Payload('/registration', name='Registration')
             )
         ]
+
         chat.send_quick_reply(sender_id, menu_principale, translate('help', lang))
