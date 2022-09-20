@@ -7,17 +7,19 @@
     "fr": "Que puis-je faire pour vous?",
     "mg": "Inona no afaka atao ho anao?"
   },
+
   "about": {
     "fr": "Information",
     "mg": "Mombamoba ny sekoly"
   },
+
   "what_about": {
     "fr": "A propos de: ",
     "mg": "Mahakasika ny: "
   },
   "detail": {
-    "fr": "Choisir un numero pour plus de details:",
-    "mg": "Misafidiana isa raha te hafantatra misimisy:"
+    "fr": "Choisir un numéro pour plus de details:",
+    "mg": "Misafidiana iray amin'ireo raha te hafantatra misimisy kokoa:"
   },
   "registration": {
     "fr": "Inscription",
@@ -28,7 +30,7 @@
     "mg": "Fisoratra anarana"
   },
   "attachment": {
-    "fr": "Dossier a fournir:",
+    "fr": "Dossier à fournir:",
     "mg": "Ireo taratasy ilaina:"
   },
   "qualification": {
@@ -36,24 +38,63 @@
     "mg": "Fahafahana misitraka ny:"
   },
   "end_souscription": {
-    "fr": "Fin de depot de dossier:",
+    "fr": "Fin de dépot de dossier:",
     "mg": "Farany fisoratana anarana:"
   },
   "sector": {
     "fr": "Mentions",
-    "mg": "Ireo Taranja"
+    "mg": "Ireo lalam-piofanana"
   },
   "ampalibe": {
     "fr": "Jacquier",
     "mg": "Ampalibe"
   },
-  "validate": {
-    "fr": "Valider",
-    "mg": "Voamarina"
+  "informations": "filière, tarif, activite universitaire",
+  "files_attachment": {
+    "fr": [
+      "Photocopie legalisée de l'attestation du Bac ou du relévé de notes du Bac",
+      "Bulletin de naissance",
+      "Droit d'inscription à la séléction de dossier : 30 000Ar",
+      "Relévé de notes des classes de seconde, première et terminale (facultatif)",
+      "Une photo d'identité"
+    ],
+    "mg": [
+      "Taratasy voamarina faha hafaka fanandiana aram-panjakana bakalorea sy ny 'relévé de notes'",
+      "Taratasay nahaterahana",
+      "Saram-pandefasana antonta taratasy: 30 000Ar",
+      "Ireo naoty rehetra tany amin'ny kilasy ambany(facultatif)",
+      "sary tapaka iray"
+    ]
   },
-  "edit": {
-    "fr": "Editer",
-    "mg": "Ovaina"
+
+  "how_is_ispm": {
+    "fr": "L'ISPM est une institution d'Enseignement et de Recherche habilitée par le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique.",
+    "mg": "L'ISPM dia sekoly iray tsy miankina amin'ny fanjakana ary voa marina ao amin'ny Ministera ny Fampianarana ambony"
   },
-  "informations": "filiere, tarif, activite universitaire"
+
+  "ispm_localization": {
+    "fr": "L'ISPM, sis à AMBATOMARO - ANTSOBOLO, a été crée le 23 Janvier 1993",
+    "mg": "ISPM dia any AMBATOMARO - ANTSOBOLO ary niforona tamin'ny 23 janoary 1993"
+  },
+  "history": {
+    "fr": [
+      "Petite historique de l'ISPM",
+      "En 1994, il a reçu l'agrément du Ministère de l'Enseignement Supérieur et de la Recherche Scientifique.",
+      "En 1998, il a reçu l'homologation du Ministère de l'Enseignement Supérieur et de la recherche Scientifique.",
+      "En 2015, il a reçu l'habilitation du Ministère de l'Enseignement Supérieur et de la Recherche Scientifique a delivrer les diplomes de Licence et de Master pour tous les parcours qu'il offre.",
+      "Les diplômes délivres par l'ISPM sont reconnus par le Ministère de la Fonction Publique (FOP).",
+      "Les membres de la communauté ISPM ont fait plusieurs publications scientifique au niveau national et au niveau international (voir le site web).",
+      "L'ISPM a breveté le rechaud a l'éthanol a l'OMAPI.",
+      "Des performances sportives : l'ISPM est champion Interfac 2018 et vice-champion Interfac 2019 en Football Hommes, ..."
+    ],
+    "mg": [
+      "Tantara fohy ny ISPM",
+      "Tamin'ny 1994 sy tamin'ny 1998 sy tamin'ny 2015, nahazo ny taratasy ara-dalana amin'ny sekoly Fampianarana ambony azy ny sekoly avy tamin'ny  Ministeran'ny fampianarana ambony sy fikaroana ara-tsiensa",
+      "ny diplaoma azo avy ao amin'ny ISPM dia azo jerena any amin'ny FOP"
+    ]
+  },
+  "appreciation": {
+    "fr": "Merci de votre colaboration nous vous contacterons ultérieurement...",
+    "mg": "Misaotra betsaka amin'ny fiarahamiasa, miverina ..."
+  }
 }
