@@ -179,18 +179,18 @@ class Registration:
     @ampalibe.command('/registration')
     def get_user_name(sender_id, cmd, **extends):
         query.set_action(sender_id, '/get_name')
-        chat.send_message(sender_id, "Votre nom s'il vous plaît:")
+        chat.send_message(sender_id, "Votre nom s'il vous plaît :")
 
     @ampalibe.action('/get_name')
     def get_email_user(sender_id, cmd, **extends):
         query.set_temp(sender_id, 'nom', cmd)
-        chat.send_message(sender_id, "Entrer votre mail ou tel:")
+        chat.send_message(sender_id, "Entrer votre mail ou tel :")
         query.set_action(sender_id, '/get_mail')
 
     @ampalibe.action('/get_mail')
     def get_email_user(sender_id, cmd, **extends):
         query.set_temp(sender_id, 'mail', cmd)
-        chat.send_message(sender_id, "Envoyer les dossiers dans un format pdf:")
+        chat.send_message(sender_id, "Envoyer les dossiers dans un format pdf :")
         query.set_action(sender_id, '/get_folder')
 
     @ampalibe.action('/get_folder')
