@@ -47,5 +47,13 @@
     "fr": "Jacquier",
     "mg": "Ampalibe"
   },
+  "validate": {
+    "fr": "Valider",
+    "mg": "Voamarina"
+  },
+  "edit": {
+    "fr": "Editer",
+    "mg": "Ovaina"
+  },
   "informations": "filiere, tarif, activite universitaire"
 }
