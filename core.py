@@ -10,7 +10,7 @@ query = Model()
 
 language = [
     QuickReply(
-        title='Francais',
+        title='Français',
         payload=Payload('/langue', ref='fr')
     ),
     QuickReply(
@@ -43,7 +43,6 @@ def get_started(sender_id, cmd, **extends):
 def choice_language(sender_id, lang, ref, cmd, **extends):
     query.set_lang(sender_id, ref)
     chat.send_button(sender_id, go_to_main, 'Afficher la menu')
-
 
 @ampalibe.command('/')
 def main(sender_id, lang, cmd, **extends):
@@ -110,6 +109,16 @@ def details(sender_id, lang, parcours, cmd, **extends):
     """
         This methode print detail of parcour checked
     """
+    menu_principale = [
+        QuickReply(
+            title=translate('about', lang),
+            payload=Payload('/about', name='About')
+        ),
+        QuickReply(
+            title=translate('registration', lang),
+            payload=Payload('/registration', name='Registration')
+        )
+    ]
     parcour = []
     for p in parcours:
         parcour.append(p['sigle'])
@@ -122,21 +131,32 @@ def details(sender_id, lang, parcours, cmd, **extends):
             payload=Payload('/sector', name='Retour', parcours=parcours)
         ),
     ]
-    chat.send_button(sender_id, go_to_main, 'Afficher la menu')
-    chat.send_quick_reply(sender_id, go_to, 'Voir les mentions?')
+    chat.send_quick_reply(sender_id, menu_principale, translate('help', lang))
+
     
 ### End about sector
 
 # About inscription in ISPM
 @ampalibe.command('/inscription')
 def inscription(sender_id, cmd, lang, **extends):
+    menu_principale = [
+        QuickReply(
+            title=translate('about', lang),
+            payload=Payload('/about', name='About')
+        ),
+        QuickReply(
+            title=translate('registration', lang),
+            payload=Payload('/registration', name='Registration')
+        )
+    ]
+
     datetime_for_string = datetime(2022,10,1,0,0)
     datetime_string_format = '%d %b %Y'
     date_string = datetime.strftime(datetime_for_string,datetime_string_format)
 
     chat.send_message(sender_id, translate('attachment', lang))
     attachement = ""
-    for piece in files_attachment:
+    for piece in translate('files_attachment',lang):
         attachement += f"👉 {piece}\n\n"
 
     chat.send_message(sender_id, attachement)
@@ -150,6 +170,75 @@ def inscription(sender_id, cmd, lang, **extends):
 
     chat.send_message(sender_id, f"{translate('end_souscription', lang)} {date_string}")
 
-    chat.send_button(sender_id, go_to_main, 'Afficher la menu')
+    chat.send_quick_reply(sender_id, menu_principale, translate('help', lang))
 
 # End about sector
+
+class Registration:
+
+    @ampalibe.command('/registration')
+    def get_user_name(sender_id, cmd, **extends):
+        query.set_action(sender_id, '/get_name')
+        chat.send_message(sender_id, "Votre nom s'il vous plaît :")
+
+    @ampalibe.action('/get_name')
+    def get_email_user(sender_id, cmd, **extends):
+        query.set_temp(sender_id, 'nom', cmd)
+        chat.send_message(sender_id, "Entrer votre mail ou tel :")
+        query.set_action(sender_id, '/get_mail')
+
+    @ampalibe.action('/get_mail')
+    def get_email_user(sender_id, cmd, **extends):
+        query.set_temp(sender_id, 'mail', cmd)
+        chat.send_message(sender_id, "Envoyer les dossiers dans un format pdf :")
+        query.set_action(sender_id, '/get_folder')
+
+    @ampalibe.action('/get_folder')
+    def get_folder_user(sender_id, cmd, lang, **extends):
+        valider = [
+            QuickReply(
+                title=translate('validate', lang),
+                payload=Payload('/validate',ref='validate')
+            ),
+            QuickReply(
+                title=translate('edit', lang),
+                payload=Payload('/registration', ref='edit')
+            )
+        ]
+        
+        mail = query.get_temp(sender_id,'mail')
+        nom = query.get_temp(sender_id, 'nom')
+        query.set_temp(sender_id, 'attachment', cmd)
+
+        chat.send_quick_reply(sender_id, valider, f'Nom: {nom}\nEmail: {mail}')    
+
+    @ampalibe.command('/validate')
+    def validate(sender_id, cmd, lang, **extends):
+ 
+
+        chat.send_message(sender_id, "Tous est ok alors payer le frais de dossier avec Mvola par 034 66 535 79 en mettant comme motif votre INSC-'votre_nom' et merci de nous envoyer la reférence")
+
+        nom = query.get_temp(sender_id, 'nom')
+        pdf = query.get_temp(sender_id, 'attachment')
+        
+        ampalibe.download_file(pdf, f'assets/private/{nom}_attachment.pdf')
+        
+        chat.send_message(sender_id, 'References: ')
+        query.set_action(sender_id, '/references')
+
+    @ampalibe.action('/references')
+    def references(sender_id, cmd, lang, **extends):
+        query.set_temp(sender_id, 'reference', cmd)
+        chat.send_message(sender_id, f"{translate('appreciation', lang)}😊😊😊")
+        menu_principale = [
+            QuickReply(
+                title=translate('about', lang),
+                payload=Payload('/about', name='About')
+            ),
+            QuickReply(
+                title=translate('registration', lang),
+                payload=Payload('/registration', name='Registration')
+            )
+        ]
+
+        chat.send_quick_reply(sender_id, menu_principale, translate('help', lang))
